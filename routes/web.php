@@ -12,34 +12,40 @@ use App\Livewire\UsuarioCrud;
 |--------------------------------------------------------------------------
 */
 
+// Página de bienvenida
 Route::view('/', 'welcome');
 
-// Dashboard (accesible solo si el usuario está verificado)
+// Dashboard (solo si el usuario está autenticado y verificado)
 Route::view('/dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-// Perfil del usuario
+// Vista de perfil (de usuario)
 Route::view('/profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-// Gestión de Libros
+// Vista del perfil del desarrollador (¡la que vamos a usar!)
+Route::view('/perfil-dev', 'profile-dev')
+    ->middleware(['auth'])
+    ->name('perfil.dev');
+
+// CRUD de Libros
 Route::get('/libros', LibroCrud::class)
     ->middleware(['auth'])
     ->name('libros');
 
-// Gestión de Préstamos
+// CRUD de Préstamos
 Route::get('/prestamos', PrestamoCrud::class)
     ->middleware(['auth'])
     ->name('prestamos');
 
-// Gestión de Categorías
+// CRUD de Categorías
 Route::get('/categorias', CategoriaCrud::class)
     ->middleware(['auth'])
     ->name('categorias');
 
-// Gestión de Usuarios
+// CRUD de Usuarios
 Route::get('/usuarios', UsuarioCrud::class)
     ->middleware(['auth'])
     ->name('usuarios');
@@ -47,7 +53,7 @@ Route::get('/usuarios', UsuarioCrud::class)
 // Rutas de autenticación (login, register, etc.)
 require __DIR__.'/auth.php';
 
-// Fallback para rutas no existentes (opcional pero recomendado)
+// Fallback para rutas no definidas
 Route::fallback(function () {
     return redirect('/dashboard');
 });
