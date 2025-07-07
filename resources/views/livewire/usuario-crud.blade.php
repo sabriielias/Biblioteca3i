@@ -1,11 +1,11 @@
-<x-app-layout>
+<div>
     <x-slot name="header">
         <h2 class="text-xl font-semibold text-gray-800 leading-tight">
             Gestión de Usuarios
         </h2>
     </x-slot>
 
-    <div class="py-6 max-w-3xl mx-auto">
+    <div class="py-6 max-w-2xl mx-auto">
 
         <!-- Formulario -->
         <div class="bg-white p-6 rounded shadow mb-6">
@@ -62,5 +62,11 @@
                 Total de usuarios: {{ count($usuarios) }}
             </p>
         </div>
+        <!-- Botón para volver a Biblioteca 3i -->
+        <div class="mt-6">
+            <a href="/biblioteca3i" class="inline-block px-5 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition">
+                ← Volver a Biblioteca 3i
+            </a>
+        </div>
     </div>
-</x-app-layout>
+</div>

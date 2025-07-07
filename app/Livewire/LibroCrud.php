@@ -35,6 +35,8 @@ class LibroCrud extends Component
             'categoria_id' => $this->categoria_id,
         ]);
 
+        session()->flash('mensaje', '📘 Libro guardado correctamente.');
+
         $this->reset(['titulo', 'autor', 'categoria_id']);
         $this->libros = Libro::with('categoria')->get();
     }
@@ -65,6 +67,8 @@ class LibroCrud extends Component
             'categoria_id' => $this->categoria_id,
         ]);
 
+        session()->flash('mensaje', '📘 Libro actualizado correctamente.');
+
         $this->reset(['titulo', 'autor', 'categoria_id', 'libro_id', 'modo_edicion']);
         $this->libros = Libro::with('categoria')->get();
     }
@@ -78,6 +82,9 @@ class LibroCrud extends Component
     {
         $libro = Libro::findOrFail($id);
         $libro->delete();
+
+        session()->flash('mensaje', '🗑️ Libro eliminado correctamente.');
+
         $this->libros = Libro::with('categoria')->get();
     }
 

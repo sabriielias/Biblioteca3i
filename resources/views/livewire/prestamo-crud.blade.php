@@ -1,13 +1,13 @@
-<x-app-layout>
+<div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             Gestión de Préstamos
         </h2>
     </x-slot>
 
-    <div class="py-6 max-w-3xl mx-auto">
+    <div class="py-6 max-w-2xl mx-auto">
         <!-- Formulario para registrar préstamo -->
-        <form wire:submit.prevent="guardarPrestamo" class="bg-white shadow p-6 rounded mb-6">
+        <form wire:submit.prevent="guardarPrestamo" class="bg-white p-6 rounded shadow mb-6">
             <h3 class="text-lg font-semibold mb-4">Registrar nuevo préstamo</h3>
 
             <div class="mb-4">
@@ -44,11 +44,11 @@
         </form>
 
         <!-- Tabla de préstamos -->
-        <div class="bg-white shadow p-6 rounded">
+        <div class="bg-white p-6 rounded shadow">
             <h3 class="text-lg font-semibold mb-4">Historial de préstamos</h3>
 
             @forelse($prestamos as $prestamo)
-                <div class="border-b py-2 text-sm flex justify-between items-center">
+                <div class="flex justify-between items-center border-b py-2">
                     <div>
                         📘 <strong>{{ $prestamo->libro->titulo }}</strong> prestado a
                         <strong>{{ $prestamo->usuario->name }}</strong>
@@ -75,5 +75,12 @@
                 <p class="text-gray-500">No hay préstamos registrados aún.</p>
             @endforelse
         </div>
+
+        <!-- Botón para volver a Biblioteca 3i -->
+        <div class="mt-6">
+            <a href="/biblioteca3i" class="inline-block px-5 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition">
+                ← Volver a Biblioteca 3i
+            </a>
+        </div>
     </div>
-</x-app-layout>
+</div>

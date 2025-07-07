@@ -1,4 +1,4 @@
-<x-app-layout>
+<div>
     <x-slot name="header">
         <h2 class="text-xl font-semibold text-gray-800 leading-tight">
             Gestión de Categorías
@@ -65,5 +65,12 @@
                 Total de categorías: {{ count($categorias) }}
             </p>
         </div>
+
+        <!-- Botón para volver a Biblioteca 3i -->
+        <div class="mt-6">
+            <a href="/biblioteca3i" class="inline-block px-5 py-3 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition">
+                ← Volver a Biblioteca 3i
+            </a>
+        </div>
     </div>
-</x-app-layout>
+</div>
